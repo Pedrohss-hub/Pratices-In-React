@@ -7,6 +7,21 @@ function Result(props) {
   )
 }
 
+function CardsResult(props) {
+  console.log(props.type)
+  return (
+    <div className={`cards ${props.className}`}>
+      <div className='name-card'>
+        {props.type}
+      </div>
+      <div>
+        {props.children}
+      </div>
+    </div>
+    )
+
+}
+
 function App() {
   
   return(
@@ -23,8 +38,16 @@ function App() {
       </section>
 
       <section className='sumary-section'>
-
+        <span className='text-sumary'>Summary</span>
+          <div className="cards-sumary">
+            <CardsResult className="reaction" type="Reaction">80</CardsResult>
+            <CardsResult className="memory" type="Memory">92</CardsResult>
+            <CardsResult className="verbal" type="Verbal">61</CardsResult>
+            <CardsResult className="visual" type="Visual">72</CardsResult>
+          </div>
+        <button className='btn-sumary'>Try Again</button>
       </section>
+
     </main>
   )
 

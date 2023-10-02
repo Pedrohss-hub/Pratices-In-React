@@ -2,7 +2,7 @@
     margin: auto;
     margin-top: 50px;
     width: clamp(375px, 80%, 1000px); 
-    height: 430px;
+    height: 500px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -12,6 +12,7 @@
     box-shadow: 7px 7px 29px -8px rgba(0,0,0,0.4);
 }
 
+/* First half of container */
 .first-section {
     width: 50%;
     height: 100%;
@@ -22,15 +23,16 @@
     padding: 10px 30px 30px 30px;
     border-radius: 25px 25px 25px 25px;
     background-image: linear-gradient(0deg, hsl(241, 81%, 54%), hsl(252, 100%, 67%));
+    color: white;
 }
 
 .status-text {
-    font-size: clamp(20px, 34px, 100px);
+    font-size: 34px;
 }
 
 .circle-result {
-    width: clamp(150px, 25vw, 700px);
-    height: clamp(150px, 25vw, 700px);
+    width: clamp(170px, 23vw, 250px);
+    height: clamp(170px, 23vw, 250px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,17 +57,80 @@
     color: hsl(241, 100%, 89%);
 }
 
+/* Second half of container */
 .sumary-section {
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     border-radius: 0px 25px 25px 0px;
+    padding: 10px 40px 10px 40px;
     background-color: white;
 }
 
-@media (min-width: 320px) and (max-width: 425px) {
+.text-sumary {
+    align-self: flex-start;
+    font-size: 24px;
+    font-weight: 700;
+    color: hsl(224, 30%, 27%);
+}
+
+.cards-sumary {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.cards {
+    height: 6vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.reaction {
+    color: hsl(0, 100%, 67%);
+    background-color: hsla(0, 100%, 67%, 10%);
+}
+
+.memory {
+    color: hsl(39, 100%, 56%);
+    background-color: hsla(39, 100%, 56%, 10%);
+}
+
+.verbal {
+    color: hsl(166, 100%, 37%);
+    background-color:hsla(166, 100%, 37%, 10%);
+}
+
+.visual {
+    color: hsl(234, 85%, 45%);
+    background-color:  hsla(234, 85%, 45%, 10%);
+}
+
+
+.btn-sumary {
+    width: 100%;
+    height: 6vh;
+    border-radius: 80px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    background-color: hsl(224, 30%, 27%);
+}
+
+/* Respondiveness in Mobile */
+@media (min-width: 300px) and (max-width: 500px) {
     .container {
         margin: 0;
         width: 100%;
+        height: 400px;
         box-shadow: none;
     }
 
@@ -77,5 +142,24 @@
     .sumary-section {
         width: 100%;
         border-radius: 0px;
+    }
+}
+
+/* Respondiveness in Desktop */
+@media (min-width: 1000px) {
+    .container {
+        height: 500px;
+    }
+
+    .number-result {
+        font-size: 90px;
+    }
+
+    .status-text {
+        font-size: 40px;
+    }
+
+    .generic-text {
+        font-size: 22px;
     }
 }
