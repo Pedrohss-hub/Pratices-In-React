@@ -14,8 +14,8 @@ function CardsResult(props) {
       <div className='name-card'>
         {props.type}
       </div>
-      <div>
-        {props.children}
+      <div className='number-card'>
+        {props.children} <p className='number-100'> / 100</p>
       </div>
     </div>
     )
