@@ -8,7 +8,6 @@ function Result(props) {
 }
 
 function CardsResult(props) {
-  console.log(props.type)
   return (
     <div className={`cards ${props.className}`}>
       <div className='name-card'>
@@ -19,10 +18,25 @@ function CardsResult(props) {
       </div>
     </div>
     )
-
 }
 
 function App() {
+  
+  const [value, setValue] = useState([])
+  function ChangeValues() {
+    let randomValue = []
+    randomValue.push(parseInt(Math.random() * (100 - 1) + 1))
+    let i = 0
+    while( i < 4) {
+      let testNumber = parseInt(Math.random() * (100 - 1) + 1)
+      if(testNumber < randomValue[0]){
+        randomValue.push(testNumber)
+        i += 1
+      } 
+    }
+
+    setValue(randomValue)
+  }
   
   return(
     <main className='container'>
@@ -30,7 +44,7 @@ function App() {
       <section className='first-section'>
         <h3 className='generic-text'>Your Result</h3>
         <div className='circle-result'>
-          <Result className='number-result'>76</Result>
+          <Result className='number-result'>{value[0]}</Result>
           <span className='generic-text'>of 100</span>
         </div>
         <h2 className='status-text'>Great</h2>
@@ -40,14 +54,14 @@ function App() {
       <section className='sumary-section'>
         <span className='text-sumary'>Summary</span>
           <div className="cards-sumary">
-            <CardsResult className="reaction" type="Reaction">80</CardsResult>
-            <CardsResult className="memory" type="Memory">92</CardsResult>
-            <CardsResult className="verbal" type="Verbal">61</CardsResult>
-            <CardsResult className="visual" type="Visual">72</CardsResult>
+            <CardsResult className="reaction" type="Reaction">{value[1]}</CardsResult>
+            <CardsResult className="memory" type="Memory">{value[2]}</CardsResult>
+            <CardsResult className="verbal" type="Verbal">{value[3]}</CardsResult>
+            <CardsResult className="visual" type="Visual">{value[4]}</CardsResult>
           </div>
-        <button className='btn-sumary'>Try Again</button>
+          <button onClick={() => ChangeValues()} className='btn-sumary'>Try Again</button>
       </section>
-
+    
     </main>
   )
 
