@@ -1,0 +1,1 @@
+In this project I used the React-Spring library to make the number change animation
